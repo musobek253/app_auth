@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="app_auth:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/app_auth_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="app_auth/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="app_auth" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.3.2" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.22" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
