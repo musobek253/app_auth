@@ -81,5 +81,29 @@ public class DbService {
         }
         return null;
     }
+    public User cookebayuser(User user){
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
+            String query = "select * from users where username = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,user.getUserName());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+
+                int id = resultSet.getInt(1);
+                String fristName = resultSet.getString(2);
+                String lastName = resultSet.getString(3);
+                String userName = resultSet.getString(4);
+                String phoneNumber = resultSet.getString(5);
+                User user2 = new User(id,fristName,lastName,userName,phoneNumber);
+                return user2;
+            }
+            return null;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

@@ -5,6 +5,7 @@ import service.DbService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +30,14 @@ public class Login extends HttpServlet {
 
         if (login == null){
             printWriter.write("<h2> username yoki password xato");
-        }else  printWriter.write("<h1> Tizimga xush kelipsiz "+ login.getFristName() + " " + login.getLastName());
+        }else {
+            Cookie cookie = new Cookie("Appauth",login.getUserName());
+            cookie.setMaxAge(60);
+            resp.addCookie(cookie);
+            resp.sendRedirect("/cabinet");
+        }
+
+
+//            printWriter.write("<h1> Tizimga xush kelipsiz "+ login.getFristName() + " " + login.getLastName());
     }
 }
